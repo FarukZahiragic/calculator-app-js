@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<title>Calculator</title>
+	</head>
+	<body>
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+		<div class="content" id="sidebar">
+			<a href="javascript:void(0)" class="zatvoriti" onclick="zatvori()">Close</a>
+			<fieldset id="fieldset">
+				<legend>Calculator</legend>
+				<form name="Calculator">
+					<table>
+						<tr>
+							<td colspan="4"><input type="text" name="rez" value="" placeholder="0" class="rez"></td>
+						</tr>
+						<tr>
+							<td><button onclick="return number(value)" value="+">+</button></td>
+							<td><button onclick="return number(value)" value="-">-</button></td>
+							<td><button onclick="return number(value)" value="*">*</button></td>
+							<td><button onclick="return number(value)" value="/">/</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return kvadrat()" value="^">x<sup>2</sup></button></td>
+							<td><button onclick="return kub()" value="^">x<sup>3</sup></button></td>
+							<td><button onclick="return korjen()" value="sqrt">&radic;</button></td>
+							<td><button onclick="return korjen3()" value="sqrt3">&#8731;</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return postotak()" value="%">%</button></td>
+							<td><button onclick="return sin()" value="sin">sin</button></td>
+							<td><button onclick="return cos()" value="cos">cos</button></td>
+							<td><button onclick="return tan()" value="tan">tan</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return number(value)" value="1">1</button></td>
+							<td><button onclick="return number(value)" value="2">2</button></td>
+							<td><button onclick="return number(value)" value="3">3</button></td>
+							<td><button onclick="return backspace()" value="backspace"><</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return number(value)" value="4">4</button></td>
+							<td><button onclick="return number(value)" value="5">5</button></td>
+							<td><button onclick="return number(value)" value="6">6</button></td>
+							<td><button onclick="return number(value)" value="7">7</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return number(value)" value="8">8</button></td>
+							<td><button onclick="return number(value)" value="9">9</button></td>
+							<td><button onclick="return number(value)" value="0">0</button></td>
+							<td><button onclick="return numv(value)" value="">C</button></td>
+						</tr>
+						<tr>
+							<td><button onclick="return jednako()" value="=">=</button></td>
+						</tr>
+					</table>
+				</form>
+			</fieldset>
+		</div>
+		<span onclick="return otvori()">&#9776; Calculator</span>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>
