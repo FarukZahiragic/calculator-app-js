@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<title></title>
+		<style>
+			@font-face {
+				font-family: SansationLight;
+				src: url(SansationLight.woff);
+			}
+			body {
+				font-family: SansationLight;
+			}
+			fieldset {
+
+				border: 2px solid green;
+				border-radius: 10px;
+				background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset id="fieldset">
+			<legend>Calculator</legend>
+			<form name="Forma">
+				<label>Prvi broj</label><br>
+				<input type="number" name="Vrijednost1" value="">
+				<br>
+				<label >Drugi broj:</label><br>
+				<input type="number" name="Vrijednost2" value="">
+				<br>
+				<label>Izaberi računsku operaciju: </label>
+				<label>Sabiranje</label>
+				<input type="checkbox" name="Sabiranje" value="">
+				<label >Oduzimanje </label>
+				<input type="checkbox" name="Oduzimanje" value="">
+				<label>Mnozenje</label>
+				<input type="checkbox" name="Mnozenje" value="">
+				<label>Dijeljenje</label>
+				<input type="checkbox" name="Dijeljenje" value=""><br><br>
+
+				<label>Unesi broj: </label>
+				<input type="number" name="Korjenovanje" value="">
+				<input type="submit" value="Izracunaj korjen" onclick="return korjen()">
+				<input type="submit" value="Izracunaj stepen" onclick="return stepen()">
+				<input type="submit" value="Izracunaj postotak" onclick="return postotak()"><br><br>
+				<label>Unesi eksponent (nije obavezno): </label>
+				<input type="number" name="eksponent" value="">
+				<input type="submit" value="Izracunaj stepenovanje" onclick="return stepenovanje()"><br><br>
+				<label>Rezultat: </label>
+				<p id="rezultat"></p>
+				<input type="submit" value="Izracunaj" onclick="return operacije()">
+			</form>
+		</fieldset>
+
+		<script>
+			function operacije() {
+				var broj1 = new Number(document.Forma.Vrijednost1.value);
+				var broj2 = new Number(document.Forma.Vrijednost2.value);
+				var zbir = new Number();
+				var razlika = new Number();
+				var proizvod = new Number();
+				var kolicnik = new Number();
+
+				zbir = broj1 + broj2;
+				razlika = broj1 - broj2;
+				proizvod = broj1 * broj2;
+				kolicnik = broj1 / broj2;
+
+				if(document.Forma.Sabiranje.checked) {
+					alert("Zbir brojeva " + broj1 + " i " + broj2 + " jeste " + zbir);
+				}
+				if(document.Forma.Oduzimanje.checked) {
+					alert("Razlika brojeva " + broj1 + " i " + broj2 + " jeste " + razlika);
+				}
+				if(document.Forma.Mnozenje.checked) {
+					alert("Proizvod brojeva " + broj1 + " i " + broj2 + " jeste " + proizvod);
+				}
+				if(document.Forma.Dijeljenje.checked) {
+					alert("Kolicnik brojeva " + broj1 + " i " + broj2 + " jeste " + kolicnik);
+				}
+			}
+
+			function korjen() {
+				var rezultat = Math.sqrt(document.Forma.Korjenovanje.value);
+				rezultat = Math.round(rezultat * 100) / 100;
+				document.getElementById("rezultat").innerHTML=rezultat;
+				//document.getElementById("fieldset").style.background-image = "math.jpg";
+				alert("Rezultat je: " + rezultat);
+				return false;
+			}
+
+			function stepen() {
+				var stepen = Math.pow(document.Forma.Korjenovanje.value, 2);
+				document.getElementById("rezultat").innerHTML = stepen;
+				alert("Rezultat je: " + stepen);
+				return false;
+			}
+
+			function stepenovanje() {
+				var stepen = new Number(document.Forma.eksponent.value);
+				var rez = Math.pow(document.Forma.Korjenovanje.value, stepen);
+
+				document.getElementById("rezultat").innerHTML = rez;
+				alert("Rezultat je: " + rez);
+				return false;
+			}
+			function postotak() {
+				var rez = 1/document.Forma.Korjenovanje.value*100;
+
+				document.getElementById("rezultat").innerHTML = rez;
+				alert("Rezultat je: " + rez + " %");
+				return false;
+			}
+		</script>
+	</body>
+</html>
